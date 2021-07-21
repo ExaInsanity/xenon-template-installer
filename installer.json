@@ -1,0 +1,24 @@
+{
+    "installerId": "installer",
+    "installerName": "Template Installer",
+    "description": "Template Installer for the Xenon Launcher",
+  
+    "version": "0.0.1",
+    "sources": "https://github.com/ExaInsanity/xenon",
+    "issues": "https://github.com/ExaInsanity/xenon/issues",
+    "homepage": "https://irisfeanora.net/",
+  
+    "depends": [
+  
+    ],
+    "breaks": [
+  
+    ],
+    "recommends": [
+
+    ],
+  
+    "authors": [
+
+    ]
+  }

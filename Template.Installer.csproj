@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<DebugType>none</DebugType>
+		<ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+		<RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="installer.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="installer.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Xenon.InstallerLoader" Version="0.1.1" />
+	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="if not exist &quot;$(TargetDir)\installers&quot; mkdir $(TargetDir)\installers" />
+		<Exec Command="del $(TargetDir)\Template.Installer.deps.json" />
+		<Exec Command="move $(TargetDir)\Template.Installer.* $(TargetDir)\installers" />
+		<Exec Command="move $(TargetDir)\installer.json $(TargetDir)\installers" />
+	</Target>
+</Project>
