@@ -2,6 +2,7 @@
     "installerId": "installer",
     "installerName": "Template Installer",
     "description": "Template Installer for the Xenon Launcher",
+    "assemblyFileName": "Template.Installer.dll",
   
     "version": "0.0.1",
     "sources": "https://github.com/ExaInsanity/xenon",
